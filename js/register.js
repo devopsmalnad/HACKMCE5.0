@@ -3,25 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event details are now stored here for easy updates.
     const events = {
         'hackathon': {
-            name: 'National Level Hackathon',
+            name: 'Dev_Hack',
             description: 'This is a 2-phase national event. Phase 1 (Online Idea Submission): Teams submit solutions based on provided domains. Phase 2 (On-Campus Grand Finale): Shortlisted teams will develop working prototypes over a 24-hour period to solve real-world problems',
             maxMembers: 4,
             fee: 600,
-            rulebookUrl: './assets/rulebooks/hackathon_rules.pdf'
+            rulebookUrl: './assets/pdf/hackathon.pdf'
         },
         'ideacraft': {
             name: 'Ideacraft',
             description: 'An event where participants generate, develop, and pitch innovative ideas to solve a specific problem or challenge. It\'s a platform for creative problem-solving and entrepreneurship.',
             maxMembers: 4,
             fee: 400,
-            rulebookUrl: null // No rulebook provided
+            rulebookUrl: './assets/pdf/Ideacraft.pdf'
         },
         'gameathon': {
             name: 'Gameathon',
             description: 'A competitive gaming showdown! Form your squad and battle it out in the campus\'s premier esports tournament. Strategy, skill, and teamwork will crown the champion.',
             maxMembers: 4,
             fee: 600,
-            rulebookUrl: null // No rulebook provided
+            rulebookUrl: './assets/pdf/Gameathon.pdf'
         },
         'default': {
             name: 'HackMCE Event',

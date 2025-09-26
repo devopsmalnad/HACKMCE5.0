@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hack MCE 5.0 </title>
+    <title>HACK.MCE 5.0 </title>
     <link rel="icon" type="image/png" href="./assets/icons/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
     <link rel="shortcut icon" href="./assets/icons/favicon.ico" />
@@ -25,7 +25,7 @@
 
     <!-- Three.js for 3D background -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+   
 
 
     <!-- Custom Styles -->
@@ -77,6 +77,28 @@
                 opacity: 1;
                 transform: scale(1.05);
             }
+        }
+
+        @keyframes red-glow {
+
+            0%,
+            100% {
+                /* Base glow: A sharp inner white highlight + a softer red outer glow */
+                text-shadow: 0 0 4px rgb(254, 254, 254)
+                    0 0 12px rgba(255, 82, 82, 0.7),
+                    0 0 25px rgba(211, 0, 0, 0.6);
+            }
+
+            50% {
+                /* Peak glow: Brighter, more intense, and wider */
+                text-shadow: 0 0 8px rgba(186, 0, 0, 0.8),
+                    0 0 20px rgba(255, 100, 100, 1),
+                    0 0 40px rgba(211, 0, 0, 0.8);
+            }
+        }
+
+        .animate-red-glow {
+            animation: red-glow 2.5s ease-in-out infinite;
         }
 
         .grid-pattern {
@@ -146,7 +168,7 @@
                         <!-- NOTE: Image sources have been restored to local paths. -->
                         <img src="./assets/dot-logo.png" alt="Dot Logo"
                             class="logo-bottom absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity duration-1000 ease-in-out">
-                        <img src="./assets/logo.gif" alt="HackMCE 5.0 Logo"
+                        <img src="./assets/logo.gif" alt="HACK.MCE 5.0 Logo"
                             class="logo-top absolute inset-0 h-full w-full object-contain opacity-100 transition-opacity duration-1000 ease-in-out">
                     </a>
                 </div>
@@ -198,31 +220,29 @@
     </header>
 
     <main>
-        <section class="relative py-20 sm:py-28">
+        <section class="relative min-h-screen flex items-center justify-center">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-[#d30000] font-semibold text-lg mb-2 reveal">OCTOBER 17-18, 2025</h2>
+                <h2 class="text-[#d30000] font-semibold text-lg mb-2 reveal">OCTOBER 16-19, 2025</h2>
                 <h1 id="hero-title"
                     class="text-5xl sm:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-200 to-slate-400 reveal"
                     style="transition-delay: 100ms; will-change: transform;">
-                    Hack.Mce 5.0
+                    HACK.MCE 5.0
                 </h1>
                 <p class="mt-6 text-lg sm:text-xl max-w-3xl mx-auto text-slate-300 reveal"
                     style="transition-delay: 200ms;">
                     Join India's most awaited student-run tech festival. A confluence of groundbreaking ideas,
                     fierce
-                    competition, and limitless possibilities.
+                    competition, and limitless possibilities awaits you.
                 </p>
-                <div class="mt-10 reveal" style="transition-delay: 400ms;">
-                    <span
-                        class="inline-block bg-white/10 text-white font-semibold text-lg py-3 px-8 rounded-full border border-white/30 backdrop-blur-sm hover:bg-white/20 transition-colors duration-300 animate-pop animate-pulse">
-                        🚀 Registrations Are Now Open!
-                    </span>
+
+                <div class="mt-8 text-3xl sm:text-4xl font-extrabold text-slate-100 reveal"
+                    style="transition-delay: 250ms;">
+                    <span class="text-[#d30000] animate-red-glow">₹1 Lakh+</span>
+                    <span class="text-white drop-shadow-md">Prize Pool & Exciting Goodies!</span>
                 </div>
 
-
-
                 <div id="countdown" class="mt-12 flex justify-center gap-4 sm:gap-8 reveal"
-                    style="transition-delay: 300ms;">
+                    style="transition-delay: 350ms;">
                     <div class="countdown-box p-4 rounded-lg w-24">
                         <div id="days" class="text-4xl sm:text-5xl font-bold text-white">00</div>
                         <div class="text-sm text-slate-400">Days</div>
@@ -240,6 +260,19 @@
                         <div class="text-sm text-slate-400">Seconds</div>
                     </div>
                 </div>
+                <div class="mt-8 reveal" style="transition-delay: 300ms;">
+                    <a href="#events" class="inline-block">
+                        <span
+                            class="bg-green-500/10 border border-green-500 text-green-400 font-bold text-sm py-3 px-6 rounded-full inline-flex items-center hover:bg-green-500/20 transition-all duration-300 transform hover:scale-105">
+                            <span class="relative flex h-3 w-3 mr-3">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                            </span>
+                            REGISTRATIONS ARE LIVE!
+                        </span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -248,7 +281,7 @@
                 <h2 class="text-4xl font-bold text-white">A Legacy of <span class="text-[#d30000]">Excellence</span>
                 </h2>
                 <p class="mt-4 max-w-3xl mx-auto text-slate-400 text-lg">
-                    For half a decade, HackMCE has been the epicenter of collegiate tech innovation. We bring together
+                    For half a decade, HACK.MCE has been the epicenter of collegiate tech innovation. We bring together
                     the brightest minds to solve real-world problems, pushing the boundaries of what's possible and
                     shaping the future, one project at a time.
                 </p>
@@ -257,7 +290,7 @@
 
         <section id="gallery" class="py-24">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center reveal">
-                <h2 class="text-4xl font-bold text-white mb-12">Glimpse of HackMCE 4.0</h2>
+                <h2 class="text-4xl font-bold text-white mb-12">Glimpse of HACK.MCE 4.0</h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1"><img src="./assets/images/img1.jpg"
                             alt="Coding at Hackathon"
@@ -280,25 +313,27 @@
                 <h2 class="text-4xl font-bold text-white text-center mb-16">Choose Your Challenge</h2>
                 <div class="mb-20">
                     <h3 class="text-3xl font-bold text-center text-[#d30000] mb-10 tracking-wider">OPEN EVENTS</h3>
-                    <div class="mx-auto overflow-x-auto py-4">
-                        <div class="flex flex-row gap-8">
-                            <a href="register.html?event=hackathon"
-                                class="overflow-hidden border-transparent hover:border-[#d30000] transition-all duration-300 ">
-                                <img src="./assets/event-hackathon.png" alt="Hackathon Event Poster"
-                                    class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-                            </a>
+                    <div class="mx-auto overflow-x-none py-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center">
 
                             <a href="register.html?event=ideacraft"
-                                class="overflow-hidden border-transparent hover:border-[#d30000] transition-all duration-300 ">
+                                class="w-full max-w-sm overflow-hidden rounded-lg border-2 border-transparent bg-transparent shadow-lg transition-all duration-300 hover:scale-105 hover:border-[#d30000] hover:shadow-2xl">
                                 <img src="./assets/event-ideacraft.png" alt="IdeaCraft Event Poster"
-                                    class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                                    class="h-auto w-full object-cover">
+                            </a>
+
+                            <a href="register.html?event=hackathon"
+                                class="w-full max-w-sm overflow-hidden rounded-lg border-2 border-transparent bg-transparent shadow-lg transition-all duration-300 hover:scale-105 hover:border-[#d30000] hover:shadow-2xl">
+                                <img src="./assets/event-hackathon.png" alt="Hackathon Event Poster"
+                                    class="h-auto w-full object-cover">
                             </a>
 
                             <a href="register.html?event=gameathon"
-                                class="overflow-hidden border-transparent hover:border-[#d30000] transition-all duration-300 ">
+                                class="w-full max-w-sm overflow-hidden rounded-lg border-2 border-transparent bg-transparent shadow-lg transition-all duration-300 hover:scale-105 hover:border-[#d30000] hover:shadow-2xl">
                                 <img src="./assets/event-gameathon.png" alt="Gameathon Event Poster"
-                                    class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+                                    class="h-auto w-full object-cover">
                             </a>
+
                         </div>
                     </div>
                 </div>
@@ -334,7 +369,8 @@
                             <ul class="text-gray-400 space-y-2 text-sm list-disc list-inside">
                                 <li>BGMI & Free Fire</li>
                                 <li>Valorant & COD (Mobile)</li>
-                                <li>NFS & Smash Karts</li>
+                                <li>NFS</li>
+                                <li>Smash Karts</li>
                                 <li>Dino Game</li>
                                 <li>Temple Run</li>
                                 <li>Subway Surfer</li>
@@ -362,9 +398,10 @@
                                 <li>10 Ka Funda</li>
                                 <li>Dare Devils</li>
                                 <li>Brand It Betta</li>
-                                <li>Under Techathon</li>
+                                <li>Bid Battle</li>
+                                <li>Grid Quest</li>
                                 <li>Brainy Bytes</li>
-                                <li>Visual memory</li>
+                                <li>Visual Memory</li>
                             </ul>
                         </div>
 
@@ -405,33 +442,30 @@
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-                    <!-- Sponsor 1 -->
                     <div
                         class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
-                        <img src="https://placehold.co/150x50/FFFFFF/000000?text=Sponsor+One" alt="Sponsor One"
-                            class="max-h-12 w-auto">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
+                            alt="AWS Logo" class="max-h-12 w-auto blur-lg">
                     </div>
-                    <!-- Sponsor 2 -->
                     <div
                         class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
-                        <img src="https://placehold.co/150x50/FFFFFF/000000?text=Sponsor+Two" alt="Sponsor Two"
-                            class="max-h-12 w-auto">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Google_logo.svg" alt="Google Logo"
+                            class="max-h-12 w-auto blur-lg">
                     </div>
-                    <!-- Sponsor 3 -->
                     <div
                         class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
-                        <img src="https://placehold.co/150x50/FFFFFF/000000?text=Sponsor+Three" alt="Sponsor Three"
-                            class="max-h-12 w-auto">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Microsoft_logo.svg"
+                            alt="Microsoft Logo" class="max-h-12 w-auto blur-lg">
                     </div>
-                    <!-- Sponsor 4 -->
                     <div
                         class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
-                        <img src="https://placehold.co/150x50/FFFFFF/000000?text=Sponsor+Four" alt="Sponsor Four"
-                            class="max-h-12 w-auto">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Meta_Platforms_logo.svg"
+                            alt="Meta Logo" class="max-h-12 w-auto blur-lg">
                     </div>
                 </div>
             </div>
         </section>
+
 
         <section id="contact" class="py-24">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal">
@@ -454,38 +488,38 @@
                         <div class="space-y-3">
                             <div class="flex items-center justify-between">
                                 <p class="text-slate-300">Akash</p>
-                                <a href="tel:+910000000000"
+                                <a href="tel:+917019225918"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
-                                    +91 000 000 0000
+                                    +91 701 922 5918
                                 </a>
                             </div>
                             <div class="flex items-center justify-between">
                                 <p class="text-slate-300">Kushal</p>
-                                <a href="tel:+910000000000"
+                                <a href="tel:+919380760353"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
-                                    +91 000 000 0000
+                                    +91 938 076 0353
                                 </a>
                             </div>
                             <div class="flex items-center justify-between">
                                 <p class="text-slate-300">Tatvika</p>
-                                <a href="tel:+910000000000"
+                                <a href="tel:+919380797698"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
-                                    +91 000 000 0000
+                                    +91 938 079 7698
                                 </a>
                             </div>
                         </div>
@@ -502,27 +536,27 @@
                         </div>
                         <div class="space-y-3">
                             <div class="flex items-center justify-between">
-                                <p class="text-slate-300">Aazam</p>
-                                <a href="tel:+910000000000"
+                                <p class="text-slate-300">Mohammed Aazam</p>
+                                <a href="tel:+917022669921"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
-                                    +91 000 000 0000
+                                    +91 702 266 9921
                                 </a>
                             </div>
                             <div class="flex items-center justify-between">
                                 <p class="text-slate-300">Jnanavi Venugopal</p>
-                                <a href="tel:+910000000000"
+                                <a href="tel:+918217648083"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
-                                    +91 000 000 0000
+                                    +91 821 764 8083
                                 </a>
                             </div>
                         </div>
@@ -539,27 +573,27 @@
                         </div>
                         <div class="space-y-3">
                             <div class="flex items-center justify-between">
-                                <p class="text-slate-300">Jnanavi Venugopal</p>
-                                <a href="tel:+910000000000"
+                                <p class="text-slate-300">Mohammed Aazam</p>
+                                <a href="tel:+917022669921"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
-                                    +91 000 000 0000
+                                    +91 702 266 9921
                                 </a>
                             </div>
                             <div class="flex items-center justify-between">
-                                <p class="text-slate-300">Aazam</p>
-                                <a href="tel:+910000000000"
+                                <p class="text-slate-300">Jnanavi Venugopal</p>
+                                <a href="tel:+918217648083"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
-                                    +91 000 000 0000
+                                    +91 821 764 8083
                                 </a>
                             </div>
                         </div>
@@ -577,38 +611,38 @@
                         <div class="space-y-3">
                             <div class="flex items-center justify-between">
                                 <p class="text-slate-300">Karthik V</p>
-                                <a href="tel:+910000000000"
+                                <a href="tel:+917892061862"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
-                                    +91 000 000 0000
+                                    +91 789 206 1862
                                 </a>
                             </div>
                             <div class="flex items-center justify-between">
                                 <p class="text-slate-300">Karthik K L</p>
-                                <a href="tel:+910000000000"
+                                <a href="tel:+917204528492"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
-                                    +91 000 000 0000
+                                    +91 720 452 8492
                                 </a>
                             </div>
                             <div class="flex items-center justify-between">
                                 <p class="text-slate-300">Sanjana</p>
-                                <a href="tel:+910000000000"
+                                <a href="tel:+918073641226"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
-                                    +91 000 000 0000
+                                    +91 807 364 1226
                                 </a>
                             </div>
                         </div>
@@ -626,26 +660,26 @@
                         <div class="space-y-3">
                             <div class="flex items-center justify-between">
                                 <p class="text-slate-300">Tilak</p>
-                                <a href="tel:+910000000000"
+                                <a href="tel:+919480567624"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
-                                    +91 000 000 0000
+                                    +91 948 056 7624
                                 </a>
                             </div>
                             <div class="flex items-center justify-between">
                                 <p class="text-slate-300">Likhith</p>
-                                <a href="tel:+910000000000"
+                                <a href="tel:+919686538298"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                                     </svg>
-                                    +91 000 000 0000
+                                    +91 968 653 8298
                                 </a>
                             </div>
                         </div>

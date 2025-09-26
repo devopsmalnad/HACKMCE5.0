@@ -25,7 +25,7 @@
 
     <!-- Three.js for 3D background -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+   
 
 
     <!-- Custom Styles -->
@@ -77,6 +77,28 @@
                 opacity: 1;
                 transform: scale(1.05);
             }
+        }
+
+        @keyframes red-glow {
+
+            0%,
+            100% {
+                /* Base glow: A sharp inner white highlight + a softer red outer glow */
+                text-shadow: 0 0 4px rgb(254, 254, 254)
+                    0 0 12px rgba(255, 82, 82, 0.7),
+                    0 0 25px rgba(211, 0, 0, 0.6);
+            }
+
+            50% {
+                /* Peak glow: Brighter, more intense, and wider */
+                text-shadow: 0 0 8px rgba(186, 0, 0, 0.8),
+                    0 0 20px rgba(255, 100, 100, 1),
+                    0 0 40px rgba(211, 0, 0, 0.8);
+            }
+        }
+
+        .animate-red-glow {
+            animation: red-glow 2.5s ease-in-out infinite;
         }
 
         .grid-pattern {
@@ -198,7 +220,7 @@
     </header>
 
     <main>
-        <section class="relative py-20 sm:py-28">
+        <section class="relative min-h-screen flex items-center justify-center">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-[#d30000] font-semibold text-lg mb-2 reveal">OCTOBER 16-19, 2025</h2>
                 <h1 id="hero-title"
@@ -213,10 +235,14 @@
                     competition, and limitless possibilities awaits you.
                 </p>
 
-
+                <div class="mt-8 text-3xl sm:text-4xl font-extrabold text-slate-100 reveal"
+                    style="transition-delay: 250ms;">
+                    <span class="text-[#d30000] animate-red-glow">₹1 Lakh+</span>
+                    <span class="text-white drop-shadow-md">Prize Pool & Exciting Goodies!</span>
+                </div>
 
                 <div id="countdown" class="mt-12 flex justify-center gap-4 sm:gap-8 reveal"
-                    style="transition-delay: 300ms;">
+                    style="transition-delay: 350ms;">
                     <div class="countdown-box p-4 rounded-lg w-24">
                         <div id="days" class="text-4xl sm:text-5xl font-bold text-white">00</div>
                         <div class="text-sm text-slate-400">Days</div>
@@ -233,6 +259,19 @@
                         <div id="seconds" class="text-4xl sm:text-5xl font-bold text-white">00</div>
                         <div class="text-sm text-slate-400">Seconds</div>
                     </div>
+                </div>
+                <div class="mt-8 reveal" style="transition-delay: 300ms;">
+                    <a href="#events" class="inline-block">
+                        <span
+                            class="bg-green-500/10 border border-green-500 text-green-400 font-bold text-sm py-3 px-6 rounded-full inline-flex items-center hover:bg-green-500/20 transition-all duration-300 transform hover:scale-105">
+                            <span class="relative flex h-3 w-3 mr-3">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                            </span>
+                            REGISTRATIONS ARE LIVE!
+                        </span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -274,7 +313,7 @@
                 <h2 class="text-4xl font-bold text-white text-center mb-16">Choose Your Challenge</h2>
                 <div class="mb-20">
                     <h3 class="text-3xl font-bold text-center text-[#d30000] mb-10 tracking-wider">OPEN EVENTS</h3>
-                    <div class="mx-auto overflow-x-auto py-4">
+                    <div class="mx-auto overflow-x-none py-4">
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center">
 
                             <a href="register.html?event=ideacraft"
@@ -396,36 +435,37 @@
 
         <!-- Sponsors Section -->
         <section id="sponsors" class="py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-white">Our Sponsors</h2>
-            <p class="mt-2 text-slate-400">We are grateful for the support of our partners.</p>
-        </div>
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-white">Our Sponsors</h2>
+                    <p class="mt-2 text-slate-400">We are grateful for the support of our partners.</p>
+                </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-    <div
-        class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo"
-            class="max-h-12 w-auto blur-lg">
-    </div>
-    <div
-        class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Google_logo.svg" alt="Google Logo"
-            class="max-h-12 w-auto blur-lg">
-    </div>
-    <div
-        class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Microsoft_logo.svg" alt="Microsoft Logo"
-            class="max-h-12 w-auto blur-lg">
-    </div>
-    <div
-        class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Meta_Platforms_logo.svg" alt="Meta Logo"
-            class="max-h-12 w-auto blur-lg">
-    </div>
-</div>
-    </div>
-</section>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                    <div
+                        class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
+                            alt="AWS Logo" class="max-h-12 w-auto blur-lg">
+                    </div>
+                    <div
+                        class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Google_logo.svg" alt="Google Logo"
+                            class="max-h-12 w-auto blur-lg">
+                    </div>
+                    <div
+                        class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Microsoft_logo.svg"
+                            alt="Microsoft Logo" class="max-h-12 w-auto blur-lg">
+                    </div>
+                    <div
+                        class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Meta_Platforms_logo.svg"
+                            alt="Meta Logo" class="max-h-12 w-auto blur-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <section id="contact" class="py-24">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal">
@@ -497,7 +537,7 @@
                         <div class="space-y-3">
                             <div class="flex items-center justify-between">
                                 <p class="text-slate-300">Mohammed Aazam</p>
-                                <a href="tel:+91702266921"
+                                <a href="tel:+917022669921"
                                     class="flex items-center text-sm text-slate-400 hover:text-[#d30000] hover:underline transition-colors">
                                     <svg class="w-4 h-4 mr-1.5" xmlns="https://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">

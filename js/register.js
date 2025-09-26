@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- CONFIGURATION ---
-    const GOOGLE_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxCuMkuEOozQxfFTcDB1t42v3GDA6mLnuhT9E0i3ATbJW-zhP6H3ONDbxrRLao2a_n4/exec';
-    const UPI_ID = '7022669@ybl'; 
+    const GOOGLE_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPKaeLTuwpXlQg3OUwJd3FLAm_qQNvk59t9FAZYHjbdI18C6coXBCyaTanEkjKZfeM/exec';
+    const UPI_ID = 'kushgowda1432@oksbi'; 
 
     // --- DOM ELEMENT REFERENCES ---
     const eventTitleEl = document.getElementById('details-event-title');

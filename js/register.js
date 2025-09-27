@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'This is a 2-phase national event. Phase 1 (Online Idea Submission): Teams submit solutions based on provided domains. Phase 2 (On-Campus Grand Finale): Shortlisted teams will develop working prototypes over a 24-hour period to solve real-world problems',
             maxMembers: 4,
             fee: 600,
-            rulebookUrl: './assets/pdf/hackathon.pdf'
+            rulebookUrl: './assets/pdf/Hackathon.pdf'
         },
         'ideacraft': {
             name: 'Ideacraft',

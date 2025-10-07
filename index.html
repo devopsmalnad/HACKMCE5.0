@@ -4,31 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HACK.MCE 5.0 </title>
+    <title>HACK.MCE 5.0</title>
     <link rel="icon" type="image/png" href="./assets/icons/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
     <link rel="shortcut icon" href="./assets/icons/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png" />
     <link rel="manifest" href="./assets/icons/site.webmanifest" />
 
-    <!-- Tailwind CSS CDN -->
-    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
-    <!-- Alpine.js for interactivity -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
-
-    <!-- Three.js for 3D background -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-   
 
-
-    <!-- Custom Styles -->
     <style>
         html {
             scroll-behavior: smooth;
@@ -83,14 +75,12 @@
 
             0%,
             100% {
-                /* Base glow: A sharp inner white highlight + a softer red outer glow */
-                text-shadow: 0 0 4px rgb(254, 254, 254)
+                text-shadow: 0 0 4px rgb(254, 254, 254),
                     0 0 12px rgba(255, 82, 82, 0.7),
                     0 0 25px rgba(211, 0, 0, 0.6);
             }
 
             50% {
-                /* Peak glow: Brighter, more intense, and wider */
                 text-shadow: 0 0 8px rgba(186, 0, 0, 0.8),
                     0 0 20px rgba(255, 100, 100, 1),
                     0 0 40px rgba(211, 0, 0, 0.8);
@@ -108,7 +98,8 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
             opacity: 0.3;
         }
@@ -142,6 +133,21 @@
         .reveal.visible {
             opacity: 1;
         }
+
+        @media (max-width: 640px) {
+            .countdown-box {
+                padding: 0.75rem !important;
+                width: 4rem !important;
+            }
+
+            .countdown-box div:first-child {
+                font-size: 1.5rem !important;
+            }
+
+            .countdown-box div:last-child {
+                font-size: 0.625rem !important;
+            }
+        }
     </style>
 </head>
 
@@ -153,19 +159,17 @@
 
     <header class="bg-black/50 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-800">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-16 sm:h-20">
 
-                <!-- Left Navigation -->
-                <nav class="hidden md:flex items-center space-x-8 w-1/3 justify-start">
-                    <a href="#about" class="text-slate-300 hover:text-[#d30000] transition-colors font-medium">About</a>
+                <nav class="hidden md:flex items-center space-x-6 lg:space-x-8 w-1/3 justify-start">
+                    <a href="#about"
+                        class="text-slate-300 hover:text-[#d30000] transition-colors font-medium text-sm lg:text-base">About</a>
                     <a href="#gallery"
-                        class="text-slate-300 hover:text-[#d30000] transition-colors font-medium">Gallery</a>
+                        class="text-slate-300 hover:text-[#d30000] transition-colors font-medium text-sm lg:text-base">Gallery</a>
                 </nav>
 
-                <!-- Centered Logo (Responsive) -->
                 <div class="flex-1 md:w-1/3 flex justify-center">
-                    <a href="#" class="relative h-16 md:h-20 w-32">
-                        <!-- NOTE: Image sources have been restored to local paths. -->
+                    <a href="#" class="relative h-12 sm:h-16 md:h-20 w-24 sm:w-28 md:w-32">
                         <img src="./assets/dot-logo.png" alt="Dot Logo"
                             class="logo-bottom absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity duration-1000 ease-in-out">
                         <img src="./assets/logo.gif" alt="HACK.MCE 5.0 Logo"
@@ -173,23 +177,20 @@
                     </a>
                 </div>
 
-
-                <!-- Right Navigation -->
-                <div class="hidden md:flex items-center w-1/3 justify-end space-x-6">
+                <div class="hidden md:flex items-center w-1/3 justify-end space-x-4 lg:space-x-6">
                     <a href="#events"
-                        class="text-slate-300 hover:text-[#d30000] transition-colors font-medium">Events</a>
+                        class="text-slate-300 hover:text-[#d30000] transition-colors font-medium text-sm lg:text-base">Events</a>
                     <a href="#contact"
-                        class="text-slate-300 hover:text-[#d30000] transition-colors font-medium">Contact</a>
+                        class="text-slate-300 hover:text-[#d30000] transition-colors font-medium text-sm lg:text-base">Contact</a>
                     <a href="#events"
-                        class="bg-[#d30000] text-white font-semibold py-2.5 px-6 rounded-lg shadow-lg hover:bg-[#a10000] transition-all duration-300 transform hover:scale-105 whitespace-nowrap">
+                        class="bg-[#d30000] text-white font-semibold py-2 px-4 lg:py-2.5 lg:px-6 rounded-lg shadow-lg hover:bg-[#a10000] transition-all duration-300 transform hover:scale-105 whitespace-nowrap text-sm lg:text-base">
                         Register Now
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
                     <button @click="openMenu = !openMenu" class="text-white focus:outline-none p-2">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path x-show="!openMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16m-7 6h7"></path>
                             <path x-show="openMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -200,7 +201,6 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
         <div x-show="openMenu" x-transition class="md:hidden bg-black/80 backdrop-blur-lg border-t border-slate-800">
             <nav class="flex flex-col items-center space-y-4 p-6">
                 <a href="#about" @click="openMenu = false"
@@ -220,51 +220,56 @@
     </header>
 
     <main>
-        <section class="relative min-h-screen flex items-center justify-center">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-[#d30000] font-semibold text-lg mb-2 reveal">November 17-23, 2025</h2>
+        <section class="relative min-h-screen flex items-center justify-center px-4">
+            <div class="mx-auto max-w-7xl w-full text-center">
+                <h2 class="text-[#d30000] font-semibold text-sm sm:text-base lg:text-lg mb-2 reveal">November 17-23,
+                    2025</h2>
                 <h1 id="hero-title"
-                    class="text-5xl sm:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-200 to-slate-400 reveal"
+                    class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-200 to-slate-400 reveal px-4"
                     style="transition-delay: 100ms; will-change: transform;">
                     HACK.MCE 5.0
                 </h1>
-                <p class="mt-6 text-lg sm:text-xl max-w-3xl mx-auto text-slate-300 reveal"
+                <p class="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto text-slate-300 reveal px-4"
                     style="transition-delay: 200ms;">
                     Join India's most awaited student-run tech festival. A confluence of groundbreaking ideas,
-                    fierce
-                    competition, and limitless possibilities awaits you.
+                    fierce competition, and limitless possibilities awaits you.
                 </p>
 
-                <div class="mt-8 text-3xl sm:text-4xl font-extrabold text-slate-100 reveal"
+                <div class="mt-6 sm:mt-8 text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-slate-100 reveal px-4"
                     style="transition-delay: 250ms;">
                     <span class="text-[#d30000] animate-red-glow">₹1 Lakh+</span>
-                    <span class="text-white drop-shadow-md">Prize Pool & Exciting Goodies!</span>
+                    <span class="text-white drop-shadow-md block sm:inline mt-2 sm:mt-0">Prize Pool & Exciting
+                        Goodies!</span>
                 </div>
 
-                <div id="countdown" class="mt-12 flex justify-center gap-4 sm:gap-8 reveal"
+                <div id="countdown" class="mt-8 sm:mt-12 flex justify-center gap-2 sm:gap-4 lg:gap-8 reveal px-4"
                     style="transition-delay: 350ms;">
-                    <div class="countdown-box p-4 rounded-lg w-24">
-                        <div id="days" class="text-4xl sm:text-5xl font-bold text-white">00</div>
-                        <div class="text-sm text-slate-400">Days</div>
+                    <div class="countdown-box p-3 sm:p-4 rounded-lg w-16 sm:w-20 lg:w-24">
+                        <div id="days" class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white">00
+                        </div>
+                        <div class="text-xs sm:text-sm text-slate-400">Days</div>
                     </div>
-                    <div class="countdown-box p-4 rounded-lg w-24">
-                        <div id="hours" class="text-4xl sm:text-5xl font-bold text-white">00</div>
-                        <div class="text-sm text-slate-400">Hours</div>
+                    <div class="countdown-box p-3 sm:p-4 rounded-lg w-16 sm:w-20 lg:w-24">
+                        <div id="hours" class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white">00
+                        </div>
+                        <div class="text-xs sm:text-sm text-slate-400">Hours</div>
                     </div>
-                    <div class="countdown-box p-4 rounded-lg w-24">
-                        <div id="minutes" class="text-4xl sm:text-5xl font-bold text-white">00</div>
-                        <div class="text-sm text-slate-400">Minutes</div>
+                    <div class="countdown-box p-3 sm:p-4 rounded-lg w-16 sm:w-20 lg:w-24">
+                        <div id="minutes" class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white">00
+                        </div>
+                        <div class="text-xs sm:text-sm text-slate-400">Mins</div>
                     </div>
-                    <div class="countdown-box p-4 rounded-lg w-24">
-                        <div id="seconds" class="text-4xl sm:text-5xl font-bold text-white">00</div>
-                        <div class="text-sm text-slate-400">Seconds</div>
+                    <div class="countdown-box p-3 sm:p-4 rounded-lg w-16 sm:w-20 lg:w-24">
+                        <div id="seconds" class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white">00
+                        </div>
+                        <div class="text-xs sm:text-sm text-slate-400">Secs</div>
                     </div>
                 </div>
-                <div class="mt-8 reveal" style="transition-delay: 300ms;">
+                <div class="mt-6 sm:mt-8 reveal px-4" style="transition-delay: 300ms;">
                     <a href="#events" class="inline-block">
                         <span
-                            class="bg-green-500/10 border border-green-500 text-green-400 font-bold text-sm py-3 px-6 rounded-full inline-flex items-center hover:bg-green-500/20 transition-all duration-300 transform hover:scale-105">
-                            <span class="relative flex h-3 w-3 mr-3">
+                            class="bg-green-500/10 border border-green-500 text-green-400 font-bold text-xs sm:text-sm py-2.5 sm:py-3 px-4 sm:px-6 rounded-full inline-flex items-center hover:bg-green-500/20 transition-all duration-300 transform hover:scale-105">
+                            <span class="relative flex h-3 w-3 mr-2 sm:mr-3">
                                 <span
                                     class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
@@ -276,11 +281,11 @@
             </div>
         </section>
 
-        <section id="about" class="py-24">
+        <section id="about" class="py-16 sm:py-20 lg:py-24">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center reveal">
-                <h2 class="text-4xl font-bold text-white">A Legacy of <span class="text-[#d30000]">Excellence</span>
-                </h2>
-                <p class="mt-4 max-w-3xl mx-auto text-slate-400 text-lg">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">A Legacy of <span
+                        class="text-[#d30000]">Excellence</span></h2>
+                <p class="mt-4 max-w-3xl mx-auto text-slate-400 text-base sm:text-lg">
                     For half a decade, HACK.MCE has been the epicenter of collegiate tech innovation. We bring together
                     the brightest minds to solve real-world problems, pushing the boundaries of what's possible and
                     shaping the future, one project at a time.
@@ -288,66 +293,173 @@
             </div>
         </section>
 
-        <section id="gallery" class="py-24">
+        <section id="gallery" class="py-16 sm:py-20 lg:py-24">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center reveal">
-                <h2 class="text-4xl font-bold text-white mb-12">Glimpse of HACK.MCE 4.0</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1"><img src="./assets/images/img1.jpg"
-                            alt="Coding at Hackathon"
-                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
-                    <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1"><img src="./assets/images/img3.jpg"
-                            alt="Team collaborating"
-                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
-                    <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1"><img src="./assets/images/img4.jpg"
-                            alt="Gamathon event"
-                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
-                    <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1"><img src="./assets//images/img2.jpg"
-                            alt="Presentation on stage"
-                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-8 sm:mb-12">Glimpse of HACK.MCE 4.0</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                    <div class="overflow-hidden rounded-lg aspect-square">
+                        <img src="./assets/images/img1.jpg" alt="Coding at Hackathon"
+                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <div class="overflow-hidden rounded-lg aspect-square">
+                        <img src="./assets/images/img3.jpg" alt="Team collaborating"
+                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <div class="overflow-hidden rounded-lg aspect-square">
+                        <img src="./assets/images/img4.jpg" alt="Gamathon event"
+                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <div class="overflow-hidden rounded-lg aspect-square">
+                        <img src="./assets/images/img2.jpg" alt="Presentation on stage"
+                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="events" class="py-24">
+        <section id="collaboration" class="py-16 sm:py-20 lg:py-24">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal">
-                <h2 class="text-4xl font-bold text-white text-center mb-16">Choose Your Challenge</h2>
-                <div class="mb-20">
-                    <h3 class="text-3xl font-bold text-center text-[#d30000] mb-10 tracking-wider">OPEN EVENTS</h3>
-                    <div class="mx-auto overflow-x-none py-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center">
+                <div class="text-center mb-12 sm:mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white">Tech Events Collaboration</h2>
+                    <p class="mt-2 text-slate-400 text-sm sm:text-base">
+                        An initiative powered by collective innovation across departments.
+                    </p>
+                </div>
 
-                            <a href="register.html?event=ideacraft"
-                                class="w-full max-w-sm overflow-hidden rounded-lg bg-transparent shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                                <img src="./assets/event-ideacraft.png" alt="IdeaCraft Event Poster"
-                                    class="h-auto w-full object-cover">
-                            </a>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8">
+  <div class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+    <img src="./assets/collab-logos/cse.webp" alt="CSE Logo" class="max-h-10 sm:max-h-12 lg:max-h-14 w-auto object-contain">
+  </div>
 
-                            <a href="register.html?event=hackathon"
-                                class="w-full max-w-sm overflow-hidden rounded-lg bg-transparent shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                                <img src="./assets/event-hackathon.png" alt="Hackathon Event Poster"
-                                    class="h-auto w-full object-cover">
-                            </a>
+  <div class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+    <img src="./assets/collab-logos/aiml.png" alt="AI & ML Logo" class="max-h-10 sm:max-h-12 lg:max-h-14 w-auto object-contain">
+  </div>
 
-                            <a href="register.html?event=gameathon"
-                                class="w-full max-w-sm overflow-hidden rounded-lg bg-transparent shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                                <img src="./assets/event-gameathon.png" alt="Gameathon Event Poster"
-                                    class="h-auto w-full object-cover">
-                            </a>
+  <div class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+    <img src="./assets/collab-logos/ise.png" alt="ISE Logo" class="max-h-10 sm:max-h-12 lg:max-h-14 w-auto object-contain">
+  </div>
 
-                        </div>
+  <div class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+    <img src="./assets/collab-logos/csbs.png" alt="CSBS Logo" class="max-h-10 sm:max-h-12 lg:max-h-14 w-auto object-contain">
+  </div>
+
+  <div class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+    <img src="./assets/collab-logos/ieee.png" alt="IEEE Logo" class="max-h-10 sm:max-h-12 lg:max-h-14 w-auto object-contain">
+  </div>
+
+  <div class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+    <img src="./assets/collab-logos/ieee mce.png" alt="IEEE MCE Logo" class="max-h-10 sm:max-h-12 lg:max-h-14 w-auto object-contain">
+  </div>
+</div>
+
+
+
+
+            </div>
+        </section>
+
+
+        <section id="judges" class="py-16 sm:py-20 lg:py-24">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal">
+                <div class="text-center mb-12 sm:mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white">Expert Judges</h2>
+                    <p class="mt-2 text-slate-400 text-sm sm:text-base">Your projects will be evaluated by software
+                        engineers from top tech companies.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+                    <div
+                        class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                            alt="Apple Logo" class="max-h-8 sm:max-h-10 lg:max-h-12 w-auto invert">
+                    </div>
+                    <div
+                        class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Qualcomm-Logo.svg"
+                            alt="Qualcomm Logo" class="max-h-8 sm:max-h-10 lg:max-h-12 w-auto">
+                    </div>
+                    <div
+                        class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM Logo"
+                            class="max-h-8 sm:max-h-10 lg:max-h-12 w-auto">
+                    </div>
+                    <div
+                        class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
+                            alt="Microsoft Logo" class="max-h-8 sm:max-h-10 lg:max-h-12 w-auto">
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="sponsors" class="py-16 sm:py-20 lg:py-24">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal">
+                <div class="text-center mb-12 sm:mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white">Our Sponsors</h2>
+                    <p class="mt-2 text-slate-400 text-sm sm:text-base">We are grateful for the support of our partners.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+                    <div
+                        class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
+                            alt="AWS Logo" class="max-h-8 sm:max-h-10 lg:max-h-12 w-auto blur-lg">
+                    </div>
+                    <div
+                        class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Google_logo.svg" alt="Google Logo"
+                            class="max-h-8 sm:max-h-10 lg:max-h-12 w-auto blur-lg">
+                    </div>
+                    <div
+                        class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Microsoft_logo.svg"
+                            alt="Microsoft Logo" class="max-h-8 sm:max-h-10 lg:max-h-12 w-auto blur-lg">
+                    </div>
+                    <div
+                        class="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 flex justify-center items-center h-24 sm:h-28 lg:h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Meta_Platforms_logo.svg"
+                            alt="Meta Logo" class="max-h-8 sm:max-h-10 lg:max-h-12 w-auto blur-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="py-16 sm:py-20 lg:py-24">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white text-center mb-12 sm:mb-16">Choose Your Challenge
+                </h2>
+
+                <div class="mb-16 sm:mb-20">
+                    <h3 class="text-2xl sm:text-3xl font-bold text-center text-[#d30000] mb-8 sm:mb-10 tracking-wider">
+                        OPEN EVENTS</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                        <a href="register.html?event=ideacraft"
+                            class="w-full overflow-hidden rounded-lg bg-transparent shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                            <img src="./assets/event-ideacraft.png" alt="IdeaCraft Event Poster"
+                                class="h-auto w-full object-cover">
+                        </a>
+                        <a href="register.html?event=hackathon"
+                            class="w-full overflow-hidden rounded-lg bg-transparent shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                            <img src="./assets/event-hackathon.png" alt="Hackathon Event Poster"
+                                class="h-auto w-full object-cover">
+                        </a>
+                        <a href="register.html?event=gameathon"
+                            class="w-full sm:col-span-2 lg:col-span-1 overflow-hidden rounded-lg bg-transparent shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl max-w-sm mx-auto sm:max-w-none">
+                            <img src="./assets/event-gameathon.png" alt="Gameathon Event Poster"
+                                class="h-auto w-full object-cover">
+                        </a>
+                    </div>
+                </div>
+
                 <div>
-                    <h3 class="text-3xl font-bold text-center text-[#d30000] mb-10 tracking-wider">INTER-BRANCH EVENTS
-                    </h3>
-                    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <!-- Gameathon Card -->
+                    <h3 class="text-2xl sm:text-3xl font-bold text-center text-[#d30000] mb-8 sm:mb-10 tracking-wider">
+                        INTER-BRANCH EVENTS</h3>
+                    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                         <div
-                            class="relative w-full max-w-sm overflow-hidden rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 p-8 shadow-2xl shadow-black/40 text-white">
-                            <div class="absolute top-6 right-6 text-[#d30000]">
-                                <svg xmlns="https://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                            class="relative w-full overflow-hidden rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 p-6 sm:p-8 shadow-2xl shadow-black/40 text-white">
+                            <div class="absolute top-4 sm:top-6 right-4 sm:right-6 text-[#d30000]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
+                                    stroke-linejoin="round" class="sm:w-8 sm:h-8">
                                     <path d="M2 12h2" />
                                     <path d="M6 6h2" />
                                     <path d="M10 3v2" />
@@ -362,11 +474,12 @@
                                     <circle cx="12" cy="12" r="4" />
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-2">Gameathon</h3>
-                            <p class="text-gray-300 mb-6 text-sm leading-relaxed">Compete in a variety of popular games
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Gameathon</h3>
+                            <p class="text-gray-300 mb-4 sm:mb-6 text-sm leading-relaxed">Compete in a variety of
+                                popular games
                                 and prove your skills. From strategy to battle royale, there's a challenge for every
                                 gamer.</p>
-                            <ul class="text-gray-400 space-y-2 text-sm list-disc list-inside">
+                            <ul class="text-gray-400 space-y-1.5 sm:space-y-2 text-xs sm:text-sm list-disc list-inside">
                                 <li>BGMI & Free Fire</li>
                                 <li>Valorant & COD (Mobile)</li>
                                 <li>NFS</li>
@@ -379,25 +492,24 @@
                             </ul>
                         </div>
 
-                        <!-- Techathon Card -->
                         <div
-                            class="relative w-full max-w-sm overflow-hidden rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 p-8 shadow-2xl shadow-black/40 text-white">
-                            <div class="absolute top-6 right-6 text-[#d30000]">
-                                <svg xmlns="https://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                            class="relative w-full overflow-hidden rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 p-6 sm:p-8 shadow-2xl shadow-black/40 text-white">
+                            <div class="absolute top-4 sm:top-6 right-4 sm:right-6 text-[#d30000]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
+                                    stroke-linejoin="round" class="sm:w-8 sm:h-8">
                                     <polyline points="16 18 22 12 16 6"></polyline>
                                     <polyline points="8 6 2 12 8 18"></polyline>
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-2">Techathon</h3>
-                            <p class="text-gray-300 mb-6 text-sm leading-relaxed">Test your technical wits and
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Techathon</h3>
+                            <p class="text-gray-300 mb-4 sm:mb-6 text-sm leading-relaxed">Test your technical wits and
                                 problem-solving skills in these mind-bending challenges. Think fast, code smart.</p>
-                            <ul class="text-gray-400 space-y-2 list-disc list-inside text-sm">
+                            <ul class="text-gray-400 space-y-1.5 sm:space-y-2 list-disc list-inside text-xs sm:text-sm">
                                 <li>Tech Charades</li>
                                 <li>10 Ka Funda</li>
                                 <li>Dare Devils</li>
-                                <li>Brand It Betta</li>
+                                <li>Brand It Beta</li>
                                 <li>Bid Battle</li>
                                 <li>Grid Quest</li>
                                 <li>Brainy Bytes</li>
@@ -405,20 +517,20 @@
                             </ul>
                         </div>
 
-                        <!-- Pixelathon Card -->
                         <div
-                            class="relative w-full max-w-sm overflow-hidden rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 p-8 shadow-2xl shadow-black/40 text-white">
-                            <div class="absolute top-6 right-6 text-[#d30000]">
-                                <svg xmlns="https://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                            class="relative w-full overflow-hidden rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 p-6 sm:p-8 shadow-2xl shadow-black/40 text-white md:col-span-2 lg:col-span-1">
+                            <div class="absolute top-4 sm:top-6 right-4 sm:right-6 text-[#d30000]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
+                                    stroke-linejoin="round" class="sm:w-8 sm:h-8">
                                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-2">Pixelathon</h3>
-                            <p class="text-gray-300 mb-6 text-sm leading-relaxed">Unleash your creativity and design
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Pixelathon</h3>
+                            <p class="text-gray-300 mb-4 sm:mb-6 text-sm leading-relaxed">Unleash your creativity and
+                                design
                                 prowess in this series of visual challenges. Your imagination is the only limit.</p>
-                            <ul class="text-gray-400 space-y-2 text-sm list-disc list-inside">
+                            <ul class="text-gray-400 space-y-1.5 sm:space-y-2 text-xs sm:text-sm list-disc list-inside">
                                 <li>Frame by Frame</li>
                                 <li>Poster Clash</li>
                                 <li>Product Photography</li>
@@ -431,41 +543,6 @@
                 </div>
             </div>
         </section>
-
-
-        <!-- Sponsors Section -->
-        <section id="sponsors" class="py-24">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-white">Our Sponsors</h2>
-                    <p class="mt-2 text-slate-400">We are grateful for the support of our partners.</p>
-                </div>
-
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-                    <div
-                        class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
-                            alt="AWS Logo" class="max-h-12 w-auto blur-lg">
-                    </div>
-                    <div
-                        class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Google_logo.svg" alt="Google Logo"
-                            class="max-h-12 w-auto blur-lg">
-                    </div>
-                    <div
-                        class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Microsoft_logo.svg"
-                            alt="Microsoft Logo" class="max-h-12 w-auto blur-lg">
-                    </div>
-                    <div
-                        class="glass-card rounded-2xl p-6 flex justify-center items-center h-32 transition-all duration-300 hover:border-[#d30000] hover:scale-105">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Meta_Platforms_logo.svg"
-                            alt="Meta Logo" class="max-h-12 w-auto blur-lg">
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
         <section id="contact" class="py-24">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal">
@@ -691,21 +768,23 @@
         </section>
     </main>
 
+
     <footer class="border-t border-slate-800">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
-                <p class="text-slate-400">&copy; 2025 DevOps Team, MCE Hassan. All Rights Reserved.</p>
+                <p class="text-slate-400 text-sm sm:text-base">&copy; 2025 DevOps Team, MCE Hassan. All Rights Reserved.
+                </p>
                 <div class="flex space-x-4">
                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
                         class="text-slate-500 hover:text-[#d30000] transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                         </svg>
                     </a>
                     <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
                         class="text-slate-500 hover:text-[#d30000] transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                         </svg>
@@ -716,7 +795,6 @@
     </footer>
 
     <script>
-        // --- Countdown Timer Logic ---
         const countdownDate = new Date("Nov 17, 2025 06:00:00").getTime();
         const countdownInterval = setInterval(() => {
             const now = new Date().getTime();
@@ -724,7 +802,7 @@
 
             if (distance < 0) {
                 clearInterval(countdownInterval);
-                document.getElementById("countdown").innerHTML = "<div class='text-2xl font-bold text-white'>The event is live!</div>";
+                document.getElementById("countdown").innerHTML = "<div class='text-xl sm:text-2xl font-bold text-white'>The event is live!</div>";
                 return;
             }
 
@@ -732,10 +810,8 @@
             document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
             document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
             document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
-
         }, 1000);
 
-        // --- Scroll Animation Logic ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -747,8 +823,6 @@
         });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-
-        // --- Three.js & H1 Animation Logic ---
         let scene, camera, renderer, planeMesh;
         let mouse = new THREE.Vector2();
 
@@ -778,7 +852,7 @@
             
             void main() {
                 float opacity = abs(sin(v_dist * 0.1 - u_time * 0.5)) * 0.2 + 0.1;
-                gl_FragColor = vec4(1.0, 0.0, 0.0, opacity); // Red color
+                gl_FragColor = vec4(1.0, 0.0, 0.0, opacity);
             }
         `;
 
@@ -843,21 +917,14 @@
 
         initThreeJS();
 
-
         document.addEventListener('DOMContentLoaded', () => {
+            const logosTop = document.querySelectorAll('.logo-top');
+            const logosBottom = document.querySelectorAll('.logo-bottom');
 
-            // Get all logo elements ONCE when the page loads
-            const logosTop = document.querySelectorAll('.logo-top');     // Your original logo.gif
-            const logosBottom = document.querySelectorAll('.logo-bottom'); // Your new image
-
-            // This variable tracks which logo is currently visible
             let isLogoOneVisible = true;
 
-            // This function contains the logic to swap the logos
             const toggleLogoFade = () => {
-
                 if (isLogoOneVisible) {
-                    // --- Fade OUT Logo 1 and Fade IN Logo 2 ---
                     logosTop.forEach(logo => {
                         logo.classList.remove('opacity-100');
                         logo.classList.add('opacity-0');
@@ -866,12 +933,8 @@
                         logo.classList.remove('opacity-0');
                         logo.classList.add('opacity-100');
                     });
-
-                    // Update the state
                     isLogoOneVisible = false;
-
                 } else {
-                    // --- Fade IN Logo 1 and Fade OUT Logo 2 ---
                     logosTop.forEach(logo => {
                         logo.classList.remove('opacity-0');
                         logo.classList.add('opacity-100');
@@ -880,17 +943,11 @@
                         logo.classList.remove('opacity-100');
                         logo.classList.add('opacity-0');
                     });
-
-                    // Update the state
                     isLogoOneVisible = true;
                 }
             };
 
-            // Use setInterval to run the toggle function every 3000ms (3 seconds) REPEATEDLY
             setInterval(toggleLogoFade, 3000);
-
         });
     </script>
 </body>
-
-</html>

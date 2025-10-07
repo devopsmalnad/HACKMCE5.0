@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png" />
     <link rel="manifest" href="./assets/icons/site.webmanifest" />
 
-    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,6 +95,7 @@
         }
 
         input,
+        select,
         textarea {
             background-color: rgba(20, 20, 20, 0.7) !important;
         }
@@ -187,6 +188,17 @@
                                     title="Please enter a valid 10-digit Indian mobile number" placeholder=""
                                     class="mt-1 block w-full px-4 py-3 text-white border border-slate-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition">
                             </div>
+                            
+                            <div>
+                                <label for="college-name" class="block text-sm font-medium text-slate-300">College Name</label>
+                                <input type="text" id="college-name" name="college-name" required
+                                    class="mt-1 block w-full px-4 py-3 text-white border border-slate-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition">
+                            </div>
+
+                            <!-- Placeholder for dynamic game selection UI -->
+                            <div id="game-selection-container">
+                                <!-- Game selection dropdown will be injected here by JS -->
+                            </div>
 
                             <div>
                                 <label class="block text-sm font-medium text-slate-300">Team Members (Optional)</label>
@@ -245,7 +257,7 @@
             <p class="text-3xl font-bold text-white mb-4" id="payment-amount">₹600</p>
             
             <div class="flex justify-center mb-6">
-                 <!-- The QR code image will be set by JavaScript -->
+                <!-- The QR code image will be set by JavaScript -->
                 <img id="qr-code" src="https://placehold.co/200x200/000000/ffffff?text=Loading+QR" alt="UPI Payment QR Code" class="rounded-lg bg-white p-2">
             </div>
 

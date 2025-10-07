@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'A competitive gaming showdown! Form your squad and battle it out in the campus\'s premier esports tournament. Strategy, skill, and teamwork will crown the champion.',
             maxMembers: 4,
             fee: 600,
-            rulebookUrl: './assets/pdf/Gameathon.pdf'
+            rulebookUrl: './assets/pdf/Gameathon.pdf',
+            games: ['BGMI', 'Free Fire'] // Added game options
         },
         'default': {
             name: 'HackMCE Event',
@@ -33,8 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- CONFIGURATION ---
-    const GOOGLE_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzPKaeLTuwpXlQg3OUwJd3FLAm_qQNvk59t9FAZYHjbdI18C6coXBCyaTanEkjKZfeM/exec';
-    const UPI_ID = 'kushgowda1432@oksbi'; 
+    const GOOGLE_SCRIPT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyXwQeFyiCLIl6H1EP55RcjKNxzPQqLaW2V9c2oUOfGLghoF5EmMs0UqFMK-_14aJ_v/exec';
+    const UPI_ID = 'kushgowda1432@oksbi';
 
     // --- DOM ELEMENT REFERENCES ---
     const eventTitleEl = document.getElementById('details-event-title');
@@ -49,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loaderText = document.getElementById('loader-text');
     const confirmationContainer = document.getElementById('confirmation-container');
     const registrationForm = document.getElementById('registration-form');
+    const gameSelectionContainer = document.getElementById('game-selection-container'); // Added reference
 
     // Payment Modal Elements
     const paymentModal = document.getElementById('payment-modal');
@@ -85,6 +87,33 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 eventRulebookBtn.style.display = 'none';
             }
+        }
+        createGameSelectionUI(); // Create game selection if needed
+    }
+
+    function createGameSelectionUI() {
+        if (!gameSelectionContainer) return;
+
+        // Clear previous content and hide by default
+        gameSelectionContainer.innerHTML = '';
+        gameSelectionContainer.style.display = 'none';
+
+        // Check if the current event has games to select from
+        if (currentEvent.games && currentEvent.games.length > 0) {
+            gameSelectionContainer.style.display = 'block'; // Show the container
+
+            let selectHTML = `
+                <label for="game-selection" class="block text-sm font-medium text-slate-300">Select Game</label>
+                <select id="game-selection" name="game-selection" required class="mt-1 block w-full px-4 py-3 text-white border border-slate-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition">
+                    <option value="" disabled selected>--Please choose a game--</option>
+            `;
+
+            currentEvent.games.forEach(game => {
+                selectHTML += `<option value="${game}">${game}</option>`;
+            });
+
+            selectHTML += `</select>`;
+            gameSelectionContainer.innerHTML = selectHTML;
         }
     }
 
@@ -125,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const memberInputContainer = document.createElement('div');
                 memberInputContainer.classList.add('flex', 'items-center', 'space-x-2', 'mt-2');
                 memberInputContainer.innerHTML = `
-                    <input type="text" name="member-${memberCount}" placeholder="Member ${memberCount + 1} Name" required class="block w-full px-4 py-3 text-white border border-slate-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition" style="background-color: rgba(20, 20, 20, 0.7) !important;">
+                    <input type="text" name="member-${memberCount}" placeholder="Member ${memberCount + 1} Name" required class="block w-full px-4 py-3 text-white border border-slate-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition">
                     <button type="button" class="text-red-500 text-2xl font-bold hover:text-red-400 remove-member-btn" aria-label="Remove Member">&times;</button>
                 `;
                 if (membersListEl) membersListEl.appendChild(memberInputContainer);
@@ -188,6 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
             leaderName: form.get('team-leader-name')?.toString().trim() || '',
             leaderEmail: form.get('team-leader-email')?.toString().trim() || '',
             leaderPhone: form.get('team-leader-mobile')?.toString().trim() || '',
+            collegeName: form.get('college-name')?.toString().trim() || '',
+            selectedGame: form.get('game-selection')?.toString().trim() || 'N/A',
             members: members.join(', '),
             transactionId: transactionId,
             fee: currentEvent.fee

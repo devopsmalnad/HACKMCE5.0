@@ -166,6 +166,8 @@
                         class="text-slate-300 hover:text-[#d30000] transition-colors font-medium text-sm lg:text-base">About</a>
                     <a href="#gallery"
                         class="text-slate-300 hover:text-[#d30000] transition-colors font-medium text-sm lg:text-base">Gallery</a>
+                    <a href="#events"
+                        class="text-slate-300 hover:text-[#d30000] transition-colors font-medium text-sm lg:text-base">Events</a>
                 </nav>
 
                 <div class="flex-1 md:w-1/3 flex justify-center">
@@ -178,8 +180,8 @@
                 </div>
 
                 <div class="hidden md:flex items-center w-1/3 justify-end space-x-4 lg:space-x-6">
-                    <a href="#events"
-                        class="text-slate-300 hover:text-[#d30000] transition-colors font-medium text-sm lg:text-base">Events</a>
+                    <a href="#event-map"
+                        class="text-slate-300 hover:text-[#d30000] transition-colors font-medium text-sm lg:text-base">Map</a>
                     <a href="#contact"
                         class="text-slate-300 hover:text-[#d30000] transition-colors font-medium text-sm lg:text-base">Contact</a>
                     <a href="#events"
@@ -209,6 +211,8 @@
                     class="text-slate-300 hover:text-[#d30000] transition-colors w-full text-center py-2">Gallery</a>
                 <a href="#events" @click="openMenu = false"
                     class="text-slate-300 hover:text-[#d30000] transition-colors w-full text-center py-2">Events</a>
+                <a href="#event-map" @click="openMenu = false"
+                    class="text-slate-300 hover:text-[#d30000] transition-colors w-full text-center py-2">Map</a>
                 <a href="#contact" @click="openMenu = false"
                     class="text-slate-300 hover:text-[#d30000] transition-colors w-full text-center py-2">Contact</a>
                 <a href="#events" @click="openMenu = false"
@@ -437,6 +441,40 @@
                         <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
                             alt="Microsoft Logo" class="max-h-8 sm:max-h-10 lg:max-h-12 w-auto">
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech-partner" class="py-24 text-center">
+            <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 reveal">
+                <!-- Title -->
+                <h2 class="text-4xl font-bold text-white">Our Tech Partner</h2>
+                <p class="mt-2 text-slate-400">
+                    Empowered by innovation and technology excellence from our trusted partner.
+                </p>
+
+                <!-- Logo -->
+                <div class="mt-12 flex justify-center">
+                    <img src="./assets/CedarLogo.png" alt="Cedar Arc Solutions Logo"
+                        class="h-40 md:h-52 w-auto object-contain brightness-125 contrast-125 scale-100 transition-transform duration-500 hover:scale-[1.05] hover:drop-shadow-[0_0_25px_#00bfa5]">
+
+                </div>
+
+                <!-- Description -->
+                <p class="mt-10 text-slate-300 text-center text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
+                    Cedar Arc Solutions is a dynamic technology company specializing in
+                    <span class="text-white font-medium">software development</span>,
+                    <span class="text-white font-medium">AI integration</span>, and
+                    <span class="text-white font-medium">digital transformation</span>.
+                    They empower innovation through cutting-edge technology and collaboration.
+                </p>
+
+                <!-- Link styled with #d30000 as primary color -->
+                <div class="mt-6 flex justify-center">
+                    <a href="https://www.cedararcsolutions.com" target="_blank"
+                        class="inline-block px-6 py-3 rounded-full border border-[#d30000] text-white font-medium tracking-wide hover:bg-[#d30000] hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(211,0,0,0.3)] hover:shadow-[0_0_25px_rgba(211,0,0,0.6)]">
+                        🔗 www.cedararcsolutions.com
+                    </a>
                 </div>
             </div>
         </section>
@@ -817,7 +855,7 @@
             </div>
         </section>
         <section id="event-map" class="py-16 sm:py-20 lg:py-24 bg-transparent">
-            <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 reveal">
+            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 reveal">
                 <!-- Title -->
                 <div class="text-center mb-12 sm:mb-16">
                     <h2 class="text-3xl sm:text-4xl font-bold text-white">
@@ -828,31 +866,73 @@
                     </p>
                 </div>
 
-                <!-- Map Card -->
-                <div
-                    class="relative mx-auto max-w-3xl rounded-2xl overflow-hidden border border-red-600/40 shadow-[0_0_30px_rgba(255,0,0,0.25)] bg-gradient-to-br from-black/60 via-red-950/60 to-black/60 backdrop-blur-md p-4 sm:p-6 lg:p-8 transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(255,0,0,0.4)]">
-                    <!-- Red glow animated overlay -->
+                <!-- Two-column layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <!-- Left: Custom Map Card -->
                     <div
-                        class="absolute inset-0 bg-gradient-to-t from-red-700/10 via-transparent to-transparent pointer-events-none animate-pulse">
+                        class="relative mx-auto w-full rounded-2xl overflow-hidden border border-[#d30000]/40 shadow-[0_0_30px_rgba(211,0,0,0.25)] bg-gradient-to-br from-black/60 via-[#2b0000]/60 to-black/60 backdrop-blur-md p-4 sm:p-6 lg:p-8 transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_50px_rgba(211,0,0,0.4)]">
+
+                        <!-- Red glow animated overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#d30000]/10 via-transparent to-transparent pointer-events-none animate-pulse">
+                        </div>
+
+                        <!-- Map image -->
+                        <div class="relative overflow-hidden rounded-xl">
+                            <img src="./assets/img.jpg" alt="MCE Event Zones Map"
+                                class="w-full h-auto rounded-xl object-contain transition-transform duration-700 hover:scale-105" />
+                        </div>
+
+                        <!-- Caption bar -->
+                        <div class="mt-6 text-center border-t border-[#d30000]/30 pt-4 text-slate-300">
+                            <h3 class="text-lg sm:text-xl font-semibold text-white mb-1">
+                                Campus Event Zones
+                            </h3>
+                            <p class="text-sm text-slate-400">
+                                Includes
+                                <span class="text-white font-medium">Registration, Seminar Halls, Canteen,
+                                    Competitions</span>
+                                and more.
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- Map image -->
-                    <div class="relative overflow-hidden rounded-xl">
-                        <img src="./assets/img.jpg" alt="MCE Event Zones Map"
-                            class="w-full max-w-[700px] mx-auto h-auto rounded-xl object-contain transition-transform duration-700 hover:scale-105" />
-                    </div>
+                    <!-- Right: Google Map Embed -->
+                    <div
+                        class="relative mx-auto w-full rounded-2xl overflow-hidden border border-[#d30000]/40 shadow-[0_0_30px_rgba(211,0,0,0.25)] bg-gradient-to-br from-black/60 via-[#2b0000]/60 to-black/60 backdrop-blur-md p-4 sm:p-6 lg:p-8">
 
-                    <!-- Caption bar -->
-                    <div class="mt-6 text-center border-t border-red-600/30 pt-4 text-slate-300">
-                        <h3 class="text-lg sm:text-xl font-semibold text-white mb-1">
-                            Campus Event Zones
-                        </h3>
-                        <p class="text-sm text-slate-400">
-                            Includes
-                            <span class="text-white font-medium">Registration, Seminar Halls, Canteen,
-                                Competitions</span>
-                            and more.
-                        </p>
+                        <!-- Animated red overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#d30000]/10 via-transparent to-transparent pointer-events-none animate-pulse">
+                        </div>
+
+                        <!-- Google Map Embed -->
+                        <div class="relative overflow-hidden rounded-xl">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.1830830744275!2d76.0989109748423!3d13.024010287296186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba5483386aa3ffd%3A0x1ffd88ffad2a1ca6!2sMalnad%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1762538976630!5m2!1sen!2sin"
+                                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade" class="rounded-xl"></iframe>
+                        </div>
+
+                        <!-- Caption -->
+                        <div class="mt-6 text-center border-t border-[#d30000]/30 pt-4 text-slate-300">
+                            <h3 class="text-lg sm:text-xl font-semibold text-white mb-1">
+                                📍 Malnad College of Engineering
+                            </h3>
+                            <p class="text-sm text-slate-400 leading-relaxed">
+                                Located in <span class="text-white font-medium">Hassan, Karnataka</span> —
+                                the heart of innovation and engineering excellence.
+                                Find your way to the campus and explore all event zones easily through the map on the left.
+
+                            </p>
+
+                            <!-- Google Maps Button -->
+                            <a href="https://www.google.com/maps?q=Malnad+College+of+Engineering,+Hassan"
+                                target="_blank" class="inline-block mt-4 px-6 py-2.5 rounded-full border border-[#d30000] text-white font-medium hover:bg-[#d30000] hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(211,0,0,0.3)] hover:shadow-[0_0_25px_rgba(211,0,0,0.6)]">
+                                🔗 Open in Google Maps
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       maxMembers: 4,
       fee: 600,
       rulebookUrl: "./assets/pdf/Hackathon.pdf",
-      registrationClosed: false,
+      registrationClosed: true,
     },
     ideacraft: {
       name: "Ideacraft",

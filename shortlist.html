@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortlisted Teams - Hack.MCE 5.0</title>
+    <link rel="icon" type="image/png" href="./assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ef4444; 
+        }
+        
+        /* Fade in animation for search results */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200 min-h-screen antialiased selection:bg-red-900 selection:text-white">
+
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-red-900/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
+
+    <div class="relative z-10 container mx-auto px-6 py-12">
+        
+        <a href="index.html" class="inline-flex items-center text-gray-400 hover:text-white transition-colors group mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to main site
+        </a>
+
+        <div class="text-center mb-10">
+            <h1 class="text-5xl md:text-6xl font-black mb-4 text-white tracking-tight">
+                Shortlisted <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-800">Teams</span>
+            </h1>
+            <p class="text-xl text-gray-400 font-medium uppercase tracking-[0.2em] mb-8">
+                dev_hack / hack.mce 5.0
+            </p>
+
+            <div class="max-w-xl mx-auto relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-900 rounded-lg blur opacity-30 group-hover:opacity-75 transition duration-200"></div>
+                
+                <div class="relative flex items-center bg-neutral-900/80 backdrop-blur-sm rounded-lg border border-neutral-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search ID, team, college, or member..." 
+                        class="w-full bg-transparent text-white px-4 py-4 focus:outline-none placeholder-gray-600 text-lg"
+                    >
+                </div>
+            </div>
+            <p id="result-count" class="text-sm text-gray-500 mt-3 h-5"></p>
+        </div>
+
+        <div id="teams-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
+            </div>
+
+        <div id="no-results" class="hidden text-center py-20">
+            <div class="text-6xl mb-4">🔍</div>
+            <h3 class="text-2xl font-bold text-white">No teams found</h3>
+            <p class="text-gray-500 mt-2">Try searching for a different ID, name, or college.</p>
+        </div>
+
+    </div>
+
+    <script>
+        // --- DATA SOURCE (FIXED) ---
+        const rawData = [
+            ["DH-039", "Code Forge", "JSS SCIENCE AND TECHNOLOGY", "Preetham HJ, Pratheeksha HD, Nithin G, Suhas G"],
+            ["DH-043", "CoreAstra", "MS Ramaiah institute of technology, Bangalore", "Mayur Kumar G, Kavana N, Sharath HV, Mayur Shetty"],
+            ["DH-036", "Care Bots", "Rajeev institute of technology", "Manoj M Yalavigi ,Sanjay K S, Spandana A Hombal, Bhuvana N L"],
+            ["DH-068", "CodePrix", "NMAMIT nitte", "Mohammed Mustafa, Lydell Dsouza, Imaad Baig"],
+            ["DH-070", "DietCode", "NMAM institute of technology, NITTE", "Mohammed Naurez, Samuel Rodrigues, Mohammed Suhail"],
+            ["DH-048", "ARISE", "RAJEEV INSTITUTE OF TECHNOLOGY,  HASSAN", "TEJASWINI S, THANU GOWDA M S, VINAY P N, SRUJAN RANGANATH"],
+            ["DH-006", "Ruthless", "KIT, TIPTUR", "Shreyas L Arer, Anoop P Biradar, Ganavi V C, Ganesh M G"],
+            ["DH-061", "CodeBlooded", "JSS Science and Technology University", "Varun D, Jeevan K, Basavaraj Kalingannanavar, Suhas M S"],
+            ["DH-008", "CodeSphere", "GOVT. ENGG COLLEGE, HASSAN", "Poornashree, Spandana R, Sanjana, Aishwarya"],
+            ["DH-057", "Nextgen Coders", "GM University", "Vinay M, Rishikesh N, Manoj S G, Vinyas P V"],
+            ["DH-002", "Clover", "NAVKIS, HASSAN", "Noor Laiba Maheen, Akash Gowda N C, Yashwanth HL, Khadeejathul Arfa"],
+            ["DH-053", "Aura--", "Jss science and technology university", "Jayanth DN, Navan, Bhuvan R, Arihant S Jain"],
+            ["DH-041", "WI-FIGHTERS", "REVA UNIVERSITY", "Shreyank prabhu CB, Nivas B U, Sheetal R, Ramya B J"],
+            ["DH-007", "Asif Anwar", "PES, MANDYA", "Anwar Asif, Mohammed Sufiyan, Mohith KK, VISMAY BS"],
+            ["DH-073", "SOMESHWARA", "Rajeev Institute of Technology,Hassan", "Chethan Someshwar SM, Eshwar BD, Vikas C, Yashwanth Gowda HK"],
+            ["DH-021", "MindMatrix", "Malnad College of Engineering, Hassan", "Manasa A S, Manutha B R, Keerthana M D"],
+            ["DH-022", "Innovative Hubs", "Adhichunchanagiri institute of technology", "Nandan K R, Nidhi D D"],
+            ["DH-020", "Code Warriors", "Malnad College of engineering", "Hemanth S Gowda, Sukshma Jain, Lokesh M M, Meghavathi"],
+            ["DH-075", "Team Codify", "Malnad College of engineering", "HEMA CHANDU K R, BHAVANI H T,DEEKSHA H M"],
+            ["DH-028", "Wings", "Malnad College of Engineering", "Chandrakala, Shravya R, Advaitha Vishwanath, Aishwarya M"],
+            ["DH-013", "Anonymous", "Kalpataru institute of technology", "Chandranatha T A, Skanda V, Chandan M, Mihira Simha H A"],
+            ["DH-059", "ALGO_RYTHM", "SJCE , JSSSTU - MYSORE", "GAGAN C N, MANOJ GOWDA M B, SHIVA KUMAR V H, THANUKUMAR C"],
+            ["DH-015", "Suspectraa", "Channabasaveshwara Institute of Technology", "Pooja Shree A R, Priya Darshini G, Chandana E, Bharath Kumar Chakrad"],
+            ["DH-038", "CodeCures", "Ballari Institute of Technology and Management", "Swetha Rani H S, Vasanthi Meti G, Tasneem Banu, K S Bande Nawaz Ahamed"],
+            ["DH-042", "Phantom Crew", "KLE Technological University's, Dr. M. S. Sheshgiri Campus", "Rohan Halaj, Ashish Bevinakatti, Mohammed Adil Jamadar, Saish Pauskar"],
+            ["DH-033", "404 FOUND", "MCE", "Kiran BR, Santhosh JR, Hemanth Gowda, Vedanth"],
+            ["DH-069", "Code Learners", "MCE", "Prajwal, Subhash H S, S D Partha sarathi, Sagar G R"],
+            ["DH-056", "MediAI", "Government engineering college mosale hosahalli", "Akshata k patil, Chaya, Lakshmi, Poornima"],
+            ["DH-065", "Trio", "Navkis College of Engineering", "Bhavana H.P, Bhoomika H.R, Mokshith G"],
+            ["DH-047", "Power Pulse", "Aadichunchanagiri Institute Of Technology", "G M Ankitha, Deepika B J, Sevith Kumar, Vivek Kapri"],
+            ["DH-016", "Code Vortex", "Nxt wave", "G. R. Harsha, Dhanush. M. V, Hrishikesh, Gayatri"],
+            ["DH-024", "DCUBE", "Malnad College of engineering", "Dhanyashree A, Dhanyashree S, Deepali HA"],
+            ["DH-063", "GCodz", "JSS SCIENCE AND TECHNOLOGY UNIVERSITY (SJCE)", "DHRITI TS, Ananya A M, Bhumika A, Janvi Chetan Patel"],
+            ["DH-045", "Anviga", "Tontadarya College of Engineering , Gadag", "Ananthajith K V, Vinay Kumar M, Ananya M R, Gagana M"],
+            ["DH-019", "Synara", "The National Institute of Engineering", "Anjana Suresh Kumar, Amulya Koundinya, Divya Shree H S, Apeksha N Gowda"],
+            ["DH-009", "Dev Drift", "Malnad college of Engineering", "BALAJI POOJAR, Manoj Kumar k m, Manikanth pujeri, Swamy d"],
+            ["DH-052", "SnapdragonX", "Vidyavardhaka College of Engineering", "Abhilash A, Bhoomika, Nayana AS, Darshan IC"],
+            ["DH-014", "Nirman", "Kalpataru institute of technology", "Sanika  R, Sanjana K S, Priyanka D D, Sahithya  Y"],
+            ["DH-004", "Code Crew", "MCE,Hassan", "Hitasmi G R, Poorvi Vasishta U N, Pragna B, Nisarga H R"],
+            ["DH-076", "Terra minds", "Jawaharlal Nehru New college of engineering", "Anushree M, Ratan, Chetan, Nikitha Poojary"]
+        ];
+
+        // --- NEW HELPER FUNCTION ---
+        /**
+         * Converts a string to Title Case, handling commas.
+         * e.g., "JSS SCIENCE, HASSAN" -> "Jss Science, Hassan"
+         * e.g., "Preetham HJ" -> "Preetham Hj"
+         */
+        function toTitleCase(str) {
+            if (!str) return "";
+            return str.split(',').map(part => 
+                part.trim().split(' ').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+                ).join(' ')
+            ).join(', ');
+        }
+
+        // We process the raw data into the object format your functions expect
+        const shortlistedTeams = rawData.map(team => {
+            return {
+                id: team[0],
+                teamName: team[1], // Team names left as-is (e.g., "CoreAstra")
+                track: toTitleCase(team[2]), // --- FIXED --- Apply title case to college
+                members: team[3].split(',').map(name => toTitleCase(name.trim())) // --- FIXED --- Apply title case to members
+            };
+        });
+
+        // --- LOGIC ---
+
+        const grid = document.getElementById('teams-grid');
+        const searchInput = document.getElementById('searchInput');
+        const noResultsMsg = document.getElementById('no-results');
+        const resultCount = document.getElementById('result-count');
+
+        // Generate Card HTML
+        function createCardHTML(team, index) {
+            const memberList = team.members.map(member => {
+                // Sanitize member name
+                const safeMember = member.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                return `
+                <li class="flex items-center text-gray-400 text-sm">
+                    <span class="w-1.5 h-1.5 bg-red-600 rounded-full mr-2"></span>
+                    ${safeMember}
+                </li>
+            `}).join('');
+            
+            // Sanitize track, team name, and ID
+            const safeTrack = team.track.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            const safeTeamName = team.teamName.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            const safeId = team.id.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+            // Add animation delay
+            const delay = index * 50; 
+
+            return `
+                <div class="group relative bg-neutral-900/80 backdrop-blur-sm border border-neutral-800 rounded-xl overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(220,38,38,0.2)] hover:border-red-900/50 animate-fade-in" style="animation-delay: ${delay}ms">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-red-600 to-red-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <span class="inline-block bg-neutral-800 text-gray-300 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 border border-neutral-700 group-hover:border-red-900/30 group-hover:text-white transition-colors">
+                        ${safeTrack}
+                    </span>
+
+                    <p class="text-sm font-semibold text-red-500 mb-1">${safeId}</p>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-red-500 transition-colors">${safeTeamName}</h3>
+                    
+                    <div class="border-t border-neutral-800 my-4 group-hover:border-red-900/30 transition-colors"></div>
+                    
+                    <ul class="space-y-2">
+                        ${memberList}
+                    </ul>
+                </div>
+            `;
+        }
+
+        // Render Function
+        function renderTeams(teams) {
+            grid.innerHTML = '';
+            
+            if (teams.length === 0) {
+                grid.classList.add('hidden');
+                noResultsMsg.classList.remove('hidden');
+                resultCount.innerText = '';
+            } else {
+                grid.classList.remove('hidden');
+                noResultsMsg.classList.add('hidden');
+                
+                grid.innerHTML = teams.map((team, index) => createCardHTML(team, index)).join('');
+                
+                const countText = teams.length === rawData.length ? `Showing all ${teams.length} teams` : `Showing ${teams.length} matching teams`;
+                resultCount.innerText = countText;
+            }
+        }
+
+        // Search Logic
+        function handleSearch(e) {
+            const query = e.target.value.toLowerCase();
+            
+            const filtered = shortlistedTeams.filter(team => {
+                const idMatch = team.id.toLowerCase().includes(query); 
+                const nameMatch = team.teamName.toLowerCase().includes(query);
+                const trackMatch = team.track.toLowerCase().includes(query); // This searches college
+                const memberMatch = team.members.some(m => m.toLowerCase().includes(query));
+                
+                return idMatch || nameMatch || trackMatch || memberMatch; 
+            });
+
+            renderTeams(filtered);
+        }
+
+        // Initial Render
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTeams(shortlistedTeams);
+            searchInput.addEventListener('input', handleSearch);
+        });
+
+    </script>
+</body>
+</html>

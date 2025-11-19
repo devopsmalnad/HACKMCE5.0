@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       maxMembers: 4,
       fee: 400,
       rulebookUrl: "./assets/pdf/Ideacraft.pdf",
-      registrationClosed: false,
+      registrationClosed: true,
     },
     gameathon: {
       name: "Gameathon",

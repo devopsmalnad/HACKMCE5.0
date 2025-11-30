@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="icon" type="image/png" href="./assets/icons/favicon-96x96.png" sizes="96x96" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .aurora-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(211, 0, 0, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(50, 0, 0, 0.2) 0%, transparent 40%);
+        }
+
+        .grid-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="aurora-bg"></div>
+    <div class="grid-pattern"></div>
+
+    <!-- HEADER -->
+    <header class="bg-black/50 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-800">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <a href="index.html"
+                    class="group flex items-center text-slate-400 hover:text-[#d30000] transition-colors gap-2 text-sm sm:text-base">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-5 h-5 group-hover:-translate-x-1 transition-transform">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                    <span>Back to Home</span>
+                </a>
+
+                <div class="font-bold text-lg sm:text-xl text-white tracking-wider">
+                    <span class="text-[#d30000]">Event</span> Gallery
+                </div>
+
+                <div class="w-24 hidden sm:block"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="py-12 px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col items-center">
+
+        <!-- ===================== Dev_Hack 25 Section ===================== -->
+        <div class="w-full max-w-5xl mx-auto mb-20">
+
+            <div class="text-center mb-12">
+                <h1 class="text-4xl sm:text-5xl font-black text-white mb-4">Dev_Hack Moments</h1>
+                <p class="text-slate-400 max-w-xl mx-auto text-base">
+                    View the complete collection of photos from
+                    <span class="text-[#d30000] font-semibold">Dev_Hack 25</span>.
+                    Click the button below to open the official gallery.
+                </p>
+            </div>
+
+            <div class="bg-black/40 border border-white/10 rounded-2xl p-10 backdrop-blur-md
+                shadow-[0_0_40px_rgba(0,0,0,0.6)] text-center">
+
+                <div class="text-slate-300 mb-6 text-lg">
+                    📁 All event photos are securely hosted on Google Drive.
+                </div>
+
+                <a href="https://drive.google.com/drive/folders/1Wt3hNzeJToM5Ek_HAplCW6lgjAuCAsJG" target="_blank"
+                    class="inline-flex items-center px-8 py-4 rounded-full bg-[#d30000] text-white
+                  font-semibold text-lg hover:bg-[#ff0000] transition-all
+                  shadow-[0_0_20px_rgba(211,0,0,0.4)] hover:shadow-[0_0_30px_rgba(211,0,0,0.7)]">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-6 h-6 mr-2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                    </svg>
+
+                    Open Dev_Hack 25 Gallery
+                </a>
+
+                <p class="text-slate-500 text-sm mt-6">
+                    (Opens in a new tab — recommended for large photo collections.)
+                </p>
+            </div>
+        </div>
+
+        <!-- ===================== IdeaCraft Section ===================== -->
+        <div class="w-full max-w-5xl mx-auto mb-20">
+
+            <div class="text-center mb-12 mt-20">
+                <h1 class="text-4xl sm:text-5xl font-black text-white mb-4">IdeaCraft Moments</h1>
+                <p class="text-slate-400 max-w-xl mx-auto text-base">
+                    Explore the creativity & innovation captured during
+                    <span class="text-[#d30000] font-semibold">IdeaCraft 25</span>.
+                    Click below to open the official gallery.
+                </p>
+            </div>
+
+            <div class="bg-black/40 border border-white/10 rounded-2xl p-10 backdrop-blur-md
+                shadow-[0_0_40px_rgba(0,0,0,0.6)] text-center">
+
+                <div class="text-slate-300 mb-6 text-lg">
+                    📁 All IdeaCraft photos are safely stored on Google Drive.
+                </div>
+
+                <a href="https://drive.google.com/drive/folders/1iUVsKol04UvGkP5qEeTaDSo2qAJeFCfW?usp=sharing"
+                    target="_blank"
+                    class="inline-flex items-center px-8 py-4 rounded-full bg-[#d30000] text-white
+                  font-semibold text-lg hover:bg-[#ff0000] transition-all
+                  shadow-[0_0_20px_rgba(211,0,0,0.4)] hover:shadow-[0_0_30px_rgba(211,0,0,0.7)]">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-6 h-6 mr-2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                    </svg>
+
+                    Open IdeaCraft Gallery
+                </a>
+
+                <p class="text-slate-500 text-sm mt-6">
+                    (Opens in a new tab — perfect for viewing large photo sets.)
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 bg-black py-6 mt-auto">
+        <div class="text-center text-slate-500 text-sm">
+            © 2025 DevOps Team, MCE Hassan.
+        </div>
+    </footer>
+
+</body>
+
+</html>
